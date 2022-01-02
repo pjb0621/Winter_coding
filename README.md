@@ -1,4 +1,6 @@
 # Winter_coding
+**현재 깃허브와 연결해서 Git bash로 코드를 올리는 방법이 숙지가 잘 안된 상황이라 일단 문제만 먼저 풀고 코드 업로드는 나중에!!**
+
 선행 과정 
 - 백준 회원가입
 - solved.ac 연동 ( https://smartpro.tistory.com/27 )
