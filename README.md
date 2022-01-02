@@ -34,5 +34,21 @@
 
 
 
+# 깃허브에 파일 올리는 법
+1. github 들어가서 Invite a collaborator로 초대 > 초대받은 사람이 자기 이름 폴더 만들고 코드 넣기
+2. Git으로 이용하는 방법
+ Git 다운로드 후, 파일을 저장하고 싶은 위치에 가서, 우클릭 후에 Git Bash Here 실행.
+ 
+ 다음 코드를 따라 작성
+ 
+ ```
+ $ git clone https://github.com/pjb0621/Winter_coding.git
+ ```
+ 
+ 그러면 Winter_coding 이라는 파일이 생성되므로
+ 그 폴더에서 주차 > 단계 > 자기이름 폴더 생성 하고 코드 올리면 됨.
+ 
+ 참고 : https://yongku.tistory.com/entry/%EA%B9%83%ED%97%88%EB%B8%8CGithub-Git-%ED%81%B4%EB%A1%A0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
+
 
 
