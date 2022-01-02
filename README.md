@@ -1,4 +1,8 @@
 # Winter_coding
+선행 과정 
+- 백준 회원가입
+- solved.ac 연동 ( https://smartpro.tistory.com/27 )
+
 참여자
 김민수, 김용범, 김정휘, 이하동, 이영은, 이준용, 박준병, 박윤아, 조예나 
 
