@@ -51,10 +51,10 @@
  $ git clone https://github.com/pjb0621/Winter_coding.git
  ```
  
- 그러면 Winter_coding 이라는 파일이 생성되므로
- 그 폴더에서 주차 > 단계 > 자기이름 폴더 생성 하고 코드 올리면 됨.
- 그 과정은 아래 참고하고
- 하다가 막히면 구글링 
+ 그러면 Winter_coding 이라는 파일이 생성되므로   
+ 그 폴더에서 주차 > 단계 > 자기이름 폴더 생성 하고 코드 올리면 됨.   
+ 그 과정은 아래 참고하고   
+ 하다가 막히면 구글링    
  
  참고 : https://yongku.tistory.com/entry/%EA%B9%83%ED%97%88%EB%B8%8CGithub-Git-%ED%81%B4%EB%A1%A0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
 
@@ -65,8 +65,8 @@
 # 알아서 찾아보면 좋은 링크
 
 
-- Vs code 까는 법
-  내리다보면 아래 표에 Practice > Lab0 파일 누르면 됨
+- Vs code 까는 법   
+  내리다보면 아래 표에 Practice > Lab0 파일 누르면 됨   
   http://dcslab.snu.ac.kr/courses/cp2021s/
 
 
