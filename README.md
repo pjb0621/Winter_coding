@@ -60,3 +60,13 @@
 
 
 
+
+---
+#알아서 찾아보면 좋은 링크
+
+
+- Vs code 까는 법
+http://dcslab.snu.ac.kr/courses/cp2021s/
+
+
+
