@@ -66,8 +66,8 @@
 
 
 - Vs code 까는 법
-내리다보면 아래 표에 Practice > Lab0 파일 누르면 됨
-http://dcslab.snu.ac.kr/courses/cp2021s/
+  내리다보면 아래 표에 Practice > Lab0 파일 누르면 됨
+  http://dcslab.snu.ac.kr/courses/cp2021s/
 
 
 
