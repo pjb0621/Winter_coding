@@ -65,9 +65,10 @@
 # 알아서 찾아보면 좋은 링크
 
 
-- Vs code 까는 법   
+- Vs code 까는 법(2학년 1학기 엄컴프 자료)   
   내리다보면 아래 표에 Practice > Lab0 파일 누르면 됨   
   http://dcslab.snu.ac.kr/courses/cp2021s/
 
 
-
+- Vs code 환경에서 c/c++ 구동하는 법   
+  https://rasino.tistory.com/307
