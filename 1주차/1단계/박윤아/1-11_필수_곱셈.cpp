@@ -1,4 +1,4 @@
-//2588 - 곱셈
+//2588 - 곱셈 https://www.acmicpc.net/problem/2588
 
 #include <iostream>
 using namespace std;

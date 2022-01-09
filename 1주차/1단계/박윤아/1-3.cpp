@@ -1,4 +1,4 @@
-//10171 - 고양이
+//10171 - 고양이 https://www.acmicpc.net/problem/10171
 
 #include <iostream>
 using namespace std;

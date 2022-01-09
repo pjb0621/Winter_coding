@@ -1,4 +1,4 @@
-//10998 - A×B
+//10998 - A×B https://www.acmicpc.net/problem/10998
 
 #include <iostream>
 using namespace std;

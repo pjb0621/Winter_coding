@@ -1,4 +1,4 @@
-//1001 - A-B
+//1001 - A-B https://www.acmicpc.net/problem/1001
 
 #include <iostream>
 using namespace std;
