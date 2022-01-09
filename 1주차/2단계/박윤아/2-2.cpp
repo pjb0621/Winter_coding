@@ -10,8 +10,7 @@ int main(){
     int score; char grade;
     cin>> score;
 
-    if (100<score) grade='error';
-    else if(90<=score) grade='A';
+    if(90<=score) grade='A';
     else if(80<=score) grade='B';
     else if(70<=score) grade='C';
     else if(60<=score) grade='D';
