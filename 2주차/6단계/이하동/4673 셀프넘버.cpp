@@ -26,23 +26,31 @@ int sumofdigit(int a) {
     return sum;
 }
 
-void self_num() {
+void self_num()
+{
     bool list[10001];
-    fill_n(list, 10001, true); 
+    fill_n(list, 10001, true);
     int i = 1;
-    while(i<=10000) {
-        if(sumofdigit(i)+i > 10000) continue;
-        list[sumofdigit(i)+i] = false;
+    while (i <= 10000)
+    {
+        if (sumofdigit(i) + i > 10000)
+        {
+            i++;
+            continue;
+        }
+        list[sumofdigit(i) + i] = false;
         i++;
     }
-    for(i=1; i<10001; i++) {
-        if(list[i]) {
+    for (i = 1; i < 10001; i++)
+    {
+        if (list[i])
+        {
             cout << i << endl;
         }
     }
 }
 
-int main() 
+int main()
 {
     self_num();
 }
