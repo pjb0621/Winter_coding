@@ -1,17 +1,16 @@
 // OX퀴즈 https://www.acmicpc.net/problem/8958
 
 #include <iostream>
-#include <string.h>
+#include <string>
 using namespace std;
 
 int main(){
     int N, score=0, temp=0;
-    char str[80];
+    string str;
     cin>>N;
-    int arr[N];
     for(int i=0; i<N; i++){
         cin>>str;
-        for(int j=0; j<(int)strlen(str); j++){
+        for(int j=0; j<str.size(); j++){
             if(str[j]=='O'){
                 temp++;
                 score+=temp;

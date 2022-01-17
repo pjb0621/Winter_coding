@@ -1,6 +1,7 @@
 // 평균은 넘겠지 https://www.acmicpc.net/problem/4344
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main(){
@@ -13,7 +14,7 @@ int main(){
         int sum=0, cnt=0;
         double average;
         cin>>N;
-        int score[N];
+        vector<int> score(N);
         for(int j=0; j<N; j++){
             cin>>score[j];
             sum+=score[j];

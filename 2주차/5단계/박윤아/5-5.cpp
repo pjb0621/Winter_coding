@@ -1,13 +1,14 @@
 // 평균 https://www.acmicpc.net/problem/1546
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main(){
     int N, M=0;
     long double sum=0.000000;
     cin>>N;
-    int arr[N];
+    vector<int> arr(N);
     for(int i=0; i<N; i++){
         cin>>arr[i];
     }

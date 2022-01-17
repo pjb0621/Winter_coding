@@ -1,11 +1,12 @@
 //숫자의 개수 https://www.acmicpc.net/problem/2577
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main(){
     int A, B, C, num;
-    int arr[10]={0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    vector<int> arr(10);
     cin>>A>>B>>C;
     num = A*B*C;
 
