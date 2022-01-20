@@ -32,7 +32,10 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=hdchris765)](https://solved.ac/hdchris765)    
 
-#### 박윤아
+#### 박윤아   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=cufft)](https://solved.ac/cufft)   
+
 
 
 
