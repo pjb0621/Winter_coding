@@ -19,6 +19,8 @@
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=jhwdixez10)](https://solved.ac/jhwdixez10)   
 
 #### 김민수   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=dennis0405)](https://solved.ac/dennis0405)   
 
 #### 이준용   
 [![Solved.ac
