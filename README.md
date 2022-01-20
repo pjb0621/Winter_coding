@@ -28,7 +28,9 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=euni)](https://solved.ac/euni) 
 
-#### 이하동   
+#### 이하동    
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=hdchris765)](https://solved.ac/hdchris765)    
 
 #### 박윤아
 
