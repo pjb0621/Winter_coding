@@ -6,7 +6,10 @@
 - solved.ac 연동 ( https://smartpro.tistory.com/27 )
 
 참여자
-김민수, 김용범, 김정휘, 이하동, 이영은, 이준용, 박준병, 박윤아, 조예나 
+박준병   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/generate_badge?boj=jby2021)](https://solved.ac/jby2021)   
+김민수 김용범, 김정휘, 이하동, 이영은, 이준용,  박윤아, 조예나 
 
 자문 : 고계훈
 
