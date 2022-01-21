@@ -8,18 +8,18 @@ N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출
 입력으로 주어진 숫자 N개의 합을 출력한다. */
 
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main(void)
 {
-    string nums;
-    int tmp;
+    int size;
+    char *nums;
     int sum = 0;
-    cin >> tmp;
+    cin >> size;
+    nums = new char[size];
     cin >> nums;
-    for(int i = 0; i<nums.length(); i++) {
+    for(int i = 0; i<size; i++) {
         sum += nums[i] - '0';
     }
     cout << sum;
