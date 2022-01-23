@@ -50,6 +50,11 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=js1044k)](https://solved.ac/js1044k)
 
+#### 이민준   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=IHHI)](https://solved.ac/IHHI)    
+
+
 # 규칙
 **1. 백준 > 단계별 풀어보기에서 매주 3단계씩 진행하며 푸는 분량은 '총 문제수' 에 따라 정합니다. ( 필수는 매주 월요일 10시까지 공지함 )**
  - 총 문제수가 10문제 이상 : 필수 2 + 자유 2
