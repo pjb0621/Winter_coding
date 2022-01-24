@@ -32,3 +32,4 @@ int main(void){
     cin >> N;
     cout << fac(N);
 }
+

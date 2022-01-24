@@ -1,14 +1,59 @@
 # Winter_coding
-**현재 깃허브와 연결해서 Git bash로 코드를 올리는 방법이 숙지가 잘 안된 상황이라 일단 문제만 먼저 풀고 코드 업로드는 나중에!!**
+**깃허브 브랜치를 각자 이름으로 만들고 그 내부에 문제파일을 첨부하세요. 파일 첨부 양식은 박준병 branch를 참고 :) **
 
 선행 과정 
 - 백준 회원가입
 - solved.ac 연동 ( https://smartpro.tistory.com/27 )
 
-참여자
-김민수, 김용범, 김정휘, 이하동, 이영은, 이준용, 박준병, 박윤아, 조예나 
+## 참여자
+#### 박준병   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=jby2021)](https://solved.ac/jby2021)   
 
-자문 : 고계훈
+#### 김용범   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=kybs0627)](https://solved.ac/kybs0627)    
+
+#### 김정휘   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=jhwdixez10)](https://solved.ac/jhwdixez10)   
+
+#### 김민수   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=dennis0405)](https://solved.ac/dennis0405)   
+
+#### 이준용   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=alpakar02)](https://solved.ac/alpakar02)   
+
+#### 이영은
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=euni)](https://solved.ac/euni) 
+
+#### 이하동    
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=hdchris765)](https://solved.ac/hdchris765)    
+
+#### 박윤아   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=cufft)](https://solved.ac/cufft)   
+
+
+
+
+## 자문위원   
+#### 고계훈   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=kogh2002)](https://solved.ac/kogh2002)   
+
+#### 김진수   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=js1044k)](https://solved.ac/js1044k)
+
+#### 이민준   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=IHHI)](https://solved.ac/IHHI)    
+
 
 # 규칙
 **1. 백준 > 단계별 풀어보기에서 매주 3단계씩 진행하며 푸는 분량은 '총 문제수' 에 따라 정합니다. ( 필수는 매주 월요일 10시까지 공지함 )**
