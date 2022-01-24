@@ -1,4 +1,11 @@
-#2741번 - N 찍기
-N = int(input())
-for i in range(1,N+1):
-    print(i)
+print("|\\_/|")
+print("|q p|   /}")
+print("( 0 )\"\"\"\\")
+print("|\"^\"`    |")
+print("||_/=\\\\__|")
+
+
+
+
+
+
