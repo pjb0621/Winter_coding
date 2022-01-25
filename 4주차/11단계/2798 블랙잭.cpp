@@ -18,18 +18,33 @@ N장의 카드에 써져 있는 숫자가 주어졌을 때, M을 넘지 않으�
 출력
 첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다. */
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 using namespace std;
 
-int fac(int n) {
-    if(n == 0) return 1;
-    else return n*fac(n-1);
+int blackJack(int n, int m, vector<int> cards) {
+    int sum = 0;
+    for(int i = 0; i<n-2; i++) {
+        for(int j = i+1; j<n-1; j++) {
+            for(int k = j+1; k<n; k++) {
+                if(sum < cards[i] + cards[j]+ cards[k] &&  cards[i] + cards[j]+ cards[k] <= m) {
+                    sum = cards[i] + cards[j]+ cards[k];
+                }
+            }
+        }
+    }
+    return sum;
 }
 
 int main(void){
-    int N;
-    cin >> N;
-    cout << fac(N);
+    int N, M, tmp;
+    vector<int> cards;
+    cin >> N >> M;
+    for(int i = 0; i<N; i++) {
+        cin >> tmp;
+        cards.push_back(tmp);
+    }
+
+    cout << blackJack(N, M, cards);
 }
 

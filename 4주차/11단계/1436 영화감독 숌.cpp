@@ -23,56 +23,84 @@ N번째 영화의 제목은 세상의 종말 (N번째로 작은 종말의 숫자
 
 using namespace std;
 
-int tripleSix(int N) {
-    int six = 666666;
-    int count = 1;
-    int powoften = 0;
-    int tenpow;
-    int i;
-    if (N == count) return 666;
-
-    while(1){
-        tenpow = pow(10, powoften);
-
-        for (i = tenpow; i < six % (tenpow*10); i++)
-        {
-            count++;
-            if (count == N){
-                cout << "1for" << "i:" << i << " "<< six % (tenpow*10) << endl;
-               return i * 1000 + 666;     
-            }
-                
+bool tripleSix(int N) {
+    int tmp = N;
+    int continuous = 0;
+    while(tmp>0) {
+        if(tmp%10==6) continuous++;
+        else {
+            continuous = 0;
         }
-        for (int j = 0; j < tenpow*10; j++)
-        {
-            count++;
-            if (count == N){
-                cout << "2for" << j << endl;
-                return 666 * tenpow*10 + j;
-            }
-                
-        }
-        for (i = (six % (tenpow*10)) + 1 ; i < tenpow*10; i++)
-        {
-            count++;
-            if (count == N){
-                cout << "3for" << "i:" << i << " "<< six % (tenpow*10) << endl;
-                return i * 1000 + 666;
-            }
-                
-        }
-        powoften++;
+        if(continuous==3) return true;
+        tmp = tmp/10;
     }
-    
-    
-
+    return false;
 }
 
 int main(void){
     int N;
-    while(1){
-        cin >> N;
-        cout << tripleSix(N) << endl;
+    int i = 666;
+    cin >> N;
+    int count = 0;
+    while(1) {
+        if(tripleSix(i)) count++;
+        if(count == N) {
+            cout<<i;
+            break;
+        }
+        i++;
     }
     
+    
 }
+
+
+
+
+
+
+// int tripleSix(int N) {
+//     int six = 666666;
+//     int count = 1;
+//     int powoften = 0;
+//     int tenpow;
+//     int i;
+//     if (N == count) return 666;
+
+//     while(1){
+//         tenpow = pow(10, powoften);
+
+//         for (i = tenpow; i < six % (tenpow*10); i++)
+//         {
+//             count++;
+//             if (count == N){
+//                 cout << "1for" << "i:" << i << " "<< six % (tenpow*10) << endl;
+//                return i * 1000 + 666;     
+//             }
+                
+//         }
+//         for (int j = 0; j < tenpow*10; j++)
+//         {
+//             count++;
+//             if (count == N){
+//                 cout << "2for" << j << endl;
+//                 return 666 * tenpow*10 + j;
+//             }
+                
+//         }
+//         for (i = (six % (tenpow*10)) + 1 ; i < tenpow*10; i++)
+//         {
+//             count++;
+//             if (count == N){
+//                 cout << "3for" << "i:" << i << " "<< six % (tenpow*10) << endl;
+//                 return i * 1000 + 666;
+//             }
+                
+//         }
+//         powoften++;
+//     }
+    
+    
+
+// }
+

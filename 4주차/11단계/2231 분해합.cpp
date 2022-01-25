@@ -14,13 +14,25 @@
 
 using namespace std;
 
-int fac(int n) {
-    if(n == 0) return 1;
-    else return n*fac(n-1);
+int generator(int n){
+    int tmp, i, sum;
+    int ans = 0;
+    for(i = n-1; i>=1; i--) {
+        tmp = i;
+        sum = i;
+        while(tmp>0) {
+            sum = sum + tmp%10;
+            tmp = tmp/10;
+        }
+        if(n==sum) ans = i;
+    }
+    return ans;
 }
+
 
 int main(void){
     int N;
     cin >> N;
-    cout << fac(N);
+    cout << generator(N);
 }
+

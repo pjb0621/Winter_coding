@@ -13,14 +13,37 @@
 # L = list(map(int, input().split()))
 # L.sort()
 # print(L[0]*L[-1])
+import copy
+import sys
+
 N = int(input())
 L=[]
+A = {}
+
 for i in range(N):
-    a = int(input())
+    a = int(sys.stdin.readline())
     L.append(a)
 L.sort()
+print( int(round(sum(L)/len(L))) )
+print( L[ int(len(L)/2)] )
 for i in L:
-    print(i)
+    A[i] = 0
+for i in L:
+    A[i] = A[i] + 1
+Max = max(A.values())
+B=copy.deepcopy(A)
+for i in A:
+    if(A[i] < Max):
+        del B[i]
+C = list(B.keys())
+C.sort()
+if(len(C) > 1):
+    print(C[1])
+else:
+    print(C[0])
+print(max(L) - min(L))
+
+
 # for i in range(N):
 #     A, B = input().split(' ')
 #     A = int(A)

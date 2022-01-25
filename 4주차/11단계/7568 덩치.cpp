@@ -18,17 +18,41 @@ E	(46, 155)	5
 출력
 여러분은 입력에 나열된 사람의 덩치 등수를 구해서 그 순서대로 첫 줄에 출력해야 한다. 단, 각 덩치 등수는 공백문자로 분리되어야 한다. */
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 using namespace std;
 
-int fac(int n) {
-    if(n == 0) return 1;
-    else return n*fac(n-1);
+bool issmall(int x1, int y1, int x2, int y2) {
+    if(x1>x2 && y1>y2) return false;
+    if(x1<x2 && y1<y2) return true;
+    return false;
+
 }
 
 int main(void){
-    int N;
+    int N, tmp1, tmp2;
+    vector<int> height;
+    vector<int> weight;
+    int *rank;
     cin >> N;
-    cout << fac(N);
+    rank = new int[N];
+    fill_n(rank, N, 1);
+    for(int i = 0; i<N; i++) {
+        cin >> tmp1 >> tmp2;
+        weight.push_back(tmp1);
+        height.push_back(tmp2);
+    }
+    for(int i = 0; i<N-1; i++) {
+        for(int j = i+1; j<N; j++) {
+            if(issmall(height[i], weight[i], height[j],  weight[j])) {
+                rank[i]++;
+            } 
+            if(issmall(height[j], weight[j], height[i],  weight[i])) {
+                rank[j]++;
+            } 
+        }
+    }
+    for(int i = 0; i<N; i++) {
+        cout << rank[i] << " "; 
+    }
 }
