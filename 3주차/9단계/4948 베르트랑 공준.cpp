@@ -28,4 +28,5 @@ int main(){
         cout << count << "\n";
         cin >> n;
     }
+    return 0;
 }
