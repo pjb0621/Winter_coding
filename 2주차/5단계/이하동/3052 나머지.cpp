@@ -30,7 +30,7 @@ int main()
 
     for(vector<int>::size_type i = 0; i<10; i++) {
         isthere = false;
-        tmp = vec_num[i] % 42;
+        tmp = vec_num[i] % 42; 
         for(vector<int>::size_type j = 0; j<count; j++) {
             if(vec_mod[j] == tmp) {
                 isthere = true;

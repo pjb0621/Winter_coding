@@ -13,6 +13,9 @@
 using namespace std;
 
 
+// 정렬 후 나뉘는 부분마다 세서 최댓값을 반환하는 방식.
+
+
 
 int main(void)
 {

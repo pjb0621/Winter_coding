@@ -23,17 +23,44 @@ Tn = 1 + 2 + 3 + ... + n = n(n+1)/2
 만약 K가 정확히 3개의 삼각수의 합으로 표현될수 있다면 1을, 그렇지 않다면 0을 출력한다. */
 
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 using namespace std;
 
-int fac(int n) {
-    if(n == 0) return 1;
-    else return n*fac(n-1);
+int tripleNum(int n) {
+    return (n*(n+1)/2);
 }
 
 int main(void){
-    int N,C;
-    cin >> N >> C;
-    cout << fac(N)/(fac(C)*fac(N-C)); 
+    int N, tmp;
+    vector<int> nums;
+    bool isbreak = false;
+    vector<int> triplenums;
+    cin >> N;
+    
+    for (int i = 1; i <= 46; i++)
+    {
+        triplenums.push_back(tripleNum(i));
+    }
+    for (int i = 0; i<N; i++) {
+        cin>>tmp;
+        isbreak = false;
+        for(int j = 0; j<46; j++) {
+            for(int k = 0; k<46; k++) {
+                for(int l = 0; l<46; l++) {
+                    if(triplenums[j] + triplenums[k] + triplenums[l] == tmp) {
+                        isbreak = true;
+                        break;
+                    }
+                }
+                if(isbreak) break;
+            }
+            if(isbreak) break;
+        }
+        
+    
+            if(isbreak) cout  << 1 << endl;
+            else cout << 0 << endl;
+        
+    }
 }

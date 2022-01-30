@@ -12,7 +12,8 @@
 924는 2 스트라이크 0 볼이다.
 영수는 민혁이가 말한 수가 몇 스트라이크 몇 볼인지를 답해준다.
 민혁이가 영수의 세 자리 수를 정확하게 맞추어 3 스트라이크가 되면 게임이 끝난다. 아니라면 민혁이는 새로운 수를 생각해 다시 영수에게 묻는다.
-현재 민혁이와 영수는 게임을 하고 있는 도중에 있다. 민혁이가 영수에게 어떤 수들을 물어보았는지, 그리고 각각의 물음에 영수가 어떤 대답을 했는지가 입력으로 주어진다. 이 입력을 바탕으로 여러분은 영수가 생각하고 있을 가능성이 있는 수가 총 몇 개인지를 알아맞혀야 한다.
+현재 민혁이와 영수는 게임을 하고 있는 도중에 있다. 민혁이가 영수에게 어떤 수들을 물어보았는지, 그리고 각각의 물음에 영수가 어떤 대답을
+했는지가 입력으로 주어진다. 이 입력을 바탕으로 여러분은 영수가 생각하고 있을 가능성이 있는 수가 총 몇 개인지를 알아맞혀야 한다.
 
 아래와 같은 경우를 생각해보자.  
 
@@ -39,17 +40,78 @@
 출력
 첫 줄에 영수가 생각하고 있을 가능성이 있는 답의 총 개수를 출력한다.*/
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 using namespace std;
 
-int fac(int n) {
-    if(n == 0) return 1;
-    else return n*fac(n-1);
+bool isCandidate(int N,int candidate,vector<int> question, int *strike, int *ball) {
+    bool result = true;
+    int tmp[3];
+    int eachnum[3];
+    int *resultstrike=new int[N];
+    int *resultball=new int[N];
+    for(int i = 0; i<N; i++) {
+        resultball[i] = 0;
+        resultstrike[i] = 0;
+    }
+    eachnum[0] = int(candidate / 100);
+    eachnum[1] = int((candidate / 10) % 10);
+    eachnum[2] = int(candidate%10);
+    for(int i = 0; i<N; i++) {
+        tmp[0] = int(question[i] / 100);
+        tmp[1] = int((question[i] / 10) % 10);
+        tmp[2] = int(question[i]%10);
+        for (int j = 0; j < 3; j++)
+        {
+            for(int k = 0; k<3; k++){
+                if(tmp[j] == eachnum[k]) {
+                    if(j==k) resultstrike[i]++;
+                    else resultball[i]++;
+                }
+            }
+            
+        }
+        
+    }
+    for (int j = 0; j < N; j++)
+    {
+        if(resultstrike[j] != strike[j] || resultball[j]!=ball[j]) return false;
+    }
+    return true;
+    
 }
 
 int main(void){
-    int N,C;
-    cin >> N >> C;
-    cout << fac(N)/(fac(C)*fac(N-C)); 
+    int N,tmp,i;
+    int count = 0;
+    vector<int> question;
+    cin >> N;
+    int *strike  = new int[N];
+    int *ball  = new int[N];
+    for (i = 0; i < N; i++)
+    {
+        cin >> tmp >> strike[i] >> ball[i];
+        question.push_back(tmp);
+    }
+    for(i = 123; i<=999; i++) {
+        if( int(i/10)%10 == 0) {
+            
+            continue;
+        }
+        if(i%10 == 0) {
+            
+            continue;
+        }
+        if(i%10 == int(i/10)%10 || i%10 == int(i/100) || i/100 == int(i/10)%10 ) {
+            
+            continue;
+        }
+        if( isCandidate(N, i, question, strike, ball) ) {
+           // cout << i << endl;
+            count++;
+        }
+    }
+
+    cout<<count;
+
 }
