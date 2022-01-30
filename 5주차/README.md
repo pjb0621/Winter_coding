@@ -1,7 +1,8 @@
 # 5주차 ( 1.31 ~ 2.7 )   
 
 새해복 많이 받으세요 
-<img src = "https://tenor.com/view/happy-new-year-new-year-%EC%83%88%ED%95%B4%EB%B3%B5%EB%A7%8E%EC%9D%B4%EB%B0%9B%EC%9C%BC%EC%84%B8%EC%9A%94-%EC%83%88%ED%95%B4%EB%B3%B5%EB%A7%8E%EC%9D%B4-%EC%83%88%ED%95%B4%EB%B3%B5-gif-11300069">   
+![image](https://user-images.githubusercontent.com/51842131/151710728-a3ecd106-8690-4058-91f5-3e467649d2d0.png)
+
 
 
  - 탐욕적 기법(Greedy Algorithm)( https://blog.naver.com/kks227/220775134486 ): 필수 3  
