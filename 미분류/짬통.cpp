@@ -35,6 +35,7 @@ int main(void)
     for(int i = 0; i<5; i++) {
         a.push_back(i);
     }
-    cout << binary_search_index(a, 0, 4, 5);
+    cout << binary_search_index(a, 0, 4, 5) << endl;
+    cout << max(1, 2);
 }
 

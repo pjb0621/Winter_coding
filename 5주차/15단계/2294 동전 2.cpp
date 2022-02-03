@@ -19,15 +19,66 @@ using namespace std;
 
 int main(void)
 {
-    int N, tmp;
-    cin >> N;
-    vector<int> nums;
-    for(int i = 0; i < N; i++) {
+    int N, K, tmp, count;
+    int value;
+    cin >> N >> K;
+    vector<int> coins;
+    int *dp = new int[K + 1];
+    fill_n(dp, K + 1, 0);
+    for (int i = 0; i < N; i++)
+    {
         cin >> tmp;
-        nums.push_back(tmp);
+        coins.push_back(tmp);
     }
-    sort(nums.begin(),nums.end());
-    for(int i = 0; i < N; i++) {
-        cout << nums[i] << '\n';
+    sort(coins.begin(), coins.end());
+    coins.erase(unique(coins.begin(), coins.end()), coins.end());
+    N = coins.size();
+    count = 1;
+    value = coins[N - 1] * count;
+    while (value <= K)
+    { //큰 동전 기준 배수부터 채움
+        dp[value] = count;
+        count++;
+        value = coins[N - 1] * count;
+        cout << value << endl;
+        for (int j = 1; j <= K; j++)
+        {
+            cout << j << ": " << dp[j] << endl;
+        }
     }
+
+    for (int i = N - 2; i >= 0; i--)
+    { // 큰 동전부터 시작
+        count = 1;
+        value = coins[i] * tmp;
+        while (value <= K)
+        { //큰 동전 기준 배수부터 채워나간다.
+            if (dp[value] == 0)
+            {
+                dp[value] = count;
+            }
+            for (int j = 1; j <= K; j++)
+            {
+                if (!dp[j] && dp[j + value] == 0)
+                    dp[j + value] = dp[j] + 1;
+            }
+            count++;
+            value = coins[i] * count;
+            cout << endl;
+            cout << value << endl;
+            for (int j = 1; j <= K; j++)
+            {
+                cout << j << ": " << dp[j] << endl;
+            }
+        }
+    }
+    // cout << endl;
+    // for(int j = 1; j<=K; j++) {
+    //     cout << dp[j] << endl;
+    // }
+    cout << endl;
+    if (dp[K] == 0)
+        cout << -1;
+    else
+        cout << dp[K];
 }

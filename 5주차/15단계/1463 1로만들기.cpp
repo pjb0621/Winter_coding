@@ -75,7 +75,7 @@ int main(void)
     dp[3] = 1;
     dp[4] = 2;
     cout << makeOne(N, dp) << endl;
-    for(int i = 1; i<=N; i++) {
-        cout << makeOne(i, dp) << endl;
-    }
+    // for(int i = 1; i<=N; i++) {
+    //     cout << makeOne(i, dp) << endl;
+    // }
 }
