@@ -62,8 +62,5 @@ int main(void)
             Board[i][j] = tmp[j] - '0';
         }
     }
-
-    cout << "(";
     quadTree(Board,N,0,0);
-    cout << ")";
 }
