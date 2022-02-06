@@ -46,8 +46,6 @@ int main(void)
         cin >> n >> k;
         cout << room[n][k] << endl;
     }
-    
-
 }
 
 //점화식: room[i][j] = room[i-1][j] + room[i][j-1]을 이용했더라면..

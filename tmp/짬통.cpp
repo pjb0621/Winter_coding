@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <stack>
+#include <queue>
 #include <algorithm>
 
 using namespace std;
@@ -29,13 +29,19 @@ int binary_search_index(vector<int> &a, int left, int right, int target)
 
 int main(void)
 {
-    stack<int> c;
-    vector<int> a;
-    
-    for(int i = 0; i<5; i++) {
-        a.push_back(i);
+    queue<pair<int, int>> nums; // value, 원래순서
+    vector<int> values;
+    int T, N, M, i, j, tmp;
+    cin >> N >> M;
+    int count = 0;
+    for (int j = 0; j < N; j++)
+    {
+        cin >> tmp;
+        values.push_back(tmp);
+        nums.push(make_pair(tmp, j));
     }
-    cout << binary_search_index(a, 0, 4, 5) << endl;
-    cout << max(1, 2);
+    cout << nums.front().first;
+    nums.push(nums.front());
+    nums.pop();
+    cout << nums.front().first;
 }
-

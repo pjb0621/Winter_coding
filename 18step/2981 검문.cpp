@@ -31,11 +31,14 @@ using namespace std;
 
 int main(void) 
 {
-    int N, tmp, i,j;
+    long long N, tmp, i,j;
+    long long K;
+    bool istrue;
     int n = 1;
     cin >> N;
     vector<int> nums;
-    vector<pair<int,int>> answers;
+    vector<int> subs;
+    vector<int> answers;
     int remainder[200]; // 나머지는 N개의 요소를 갖는 배열 (N개의 각 숫자를 나눈 나머지가 들어감.)
     for(int j = 0; j < N; j++) {  
         cin >> tmp;
@@ -43,33 +46,47 @@ int main(void)
     }
 
 
-
-
     // nums를 정렬한 뒤 2부터 시작해서 nums의 가장 작은 수까지 시도
     // 가장 작은 수보다 큰걸로 나눌 때, 그러면 나머지 값들 중 하나는 해당 수로 고정이고
     // 만약 그 다음 작은 수보다 더 큰걸로 나눈다면? 그때는 진짜 같을 수가 없다.
     // 따라서 2~nums[1]까지만 나눠보면 됨. 
-    sort(nums.begin(),nums.end());
-    for(int i = 2; i<=nums[1]; i++) {
-        bool isAble = true;
-        if(nums[0] % i == nums[1] % i) {
-            answers.push_back(make_pair(i, nums[0] % i));
-        }
-    } // answers에 후보들이 딱 들어가있는 상황
-    for(int i = 0; i<answers.size(); i++) {
-        for(int j = 1; j<N; j++) {
-            if(nums[j] % answers[i].first != answers[i].second) {
-                answers[i].first = 0;
-                break;
-            }
+
+
+    // a = b (mod n)을 찾는다는 것은, abs(a-b) = 0 modn을 찾는다는 거임. 씨발?
+    // 그러면 이건 차에 해당하는 값을 정렬을 해서? 가장 작은 ㅅㅋ의 약수들을 딱 가져오면 됨.
+    // 그리고 걔네들로 나머지 차들에 대해 수행 -> 모든 차들의 공약수들을 구하는 과정.
+    sort(nums.begin(),nums.end(),greater<>());
+    for(int j = 0; j < N-1; j++) {  
+        subs.push_back(nums[j] - nums[j+1]);
+    }
+    sort(subs.begin(), subs.end());
+    K = subs[0];
+    for(int i = 2; i<sqrt(K); i++) {
+        if(K%i == 0) {
+            answers.push_back(i);
         }
     }
-    for(int i = 0;i<answers.size();i++) {
-        if(answers[i].first!=0)
-        cout << answers[i].first << " ";
+    if( sqrt(K)==int(sqrt(K)) ){
+        answers.push_back(int(sqrt(K)));
+        for(int i = answers.size()-2; i>=0; i--){
+            answers.push_back(K/answers[i]);
+        }
+    }
+    else {
+        for(int i = answers.size()-1; i>=0; i--){
+            answers.push_back(K/answers[i]);
+        }
+    }
+    answers.push_back(K);
+    for(int j = 0; j < answers.size(); j++) {
+        istrue = true;
+        for(int i = 1; i<subs.size(); i++) {
+            if(subs[i] % answers[j] != 0) {
+                istrue = false;
+                break;
+            } 
+        }
+        if(istrue)
+        cout << answers[j] << " ";
     }
 }
-
-
-
-

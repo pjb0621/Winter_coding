@@ -1,15 +1,3 @@
-/* https://www.acmicpc.net/problem/2580
-자연수 N과 M이 주어졌을 때, 아래 조건을 만족하는 길이가 M인 수열을 모두 구하는 프로그램을 작성하시오.
-
-1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
-입력
-첫째 줄에 자연수 N과 M이 주어진다. (1 ≤ M ≤ N ≤ 8)
-
-출력
-한 줄에 하나씩 문제의 조건을 만족하는 수열을 출력한다. 중복되는 수열을 여러 번 출력하면 안되며, 각 수열은 공백으로 구분해서 출력해야 한다.
-
-수열은 사전 순으로 증가하는 순서로 출력해야 한다. */
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,31 +5,104 @@
 
 using namespace std;
 
-void NandM(vector<int> List, int N, int M, int i) {
+bool isAble(int dot, int **Board, int a, int b) { // dot = 해당 칸의 값, a,b는 좌표
+    int i,j;
+    int k = a - a%3;
+    int l = b - b%3;
+    for (i = 0; i<9; i++) {
+        if(i==b) continue; 
+        if(dot == Board[a][i]) return false;
+    }
 
-    if(find(List.begin(),List.end(),i) != List.end()  ) { //중복 존재 시
-        return;
+    for (i = 0; i<9; i++) {
+        if(i==a) continue;
+        if(dot == Board[i][b]) return false;
     }
-    List.push_back(i);
-    if(List.size()==M) {
-        for(int j = 0; j<M; j++) cout << List[j] << " ";
-        cout<<'\n';
-        return; 
+
+    for(i = k; i < k+3; i++) {
+        for(j = l; j < l+3; j++) {
+
+            if(i==a && j==b) continue;
+            if(dot == Board[i][j]) return false;
+
+        }
     }
-    
-    for(int j = 1; j<=N; j++) {
-        NandM(List, N, M, j);
+    return true;
+}
+
+void sudoku(int **Board, vector<pair<int,int>> zeroDots) { 
+    // row랑 column은 간단함. 점이 속한 구획을 따지는 로직은? -> 1차원 배열로 펴서 find함수로 판별
+    // 1차원 배열로 피지말고, (a,b)에 대해 a%3, b%3을 따지면 될 듯.
+    // 각 pair에 대해서 순회, 그리고 pair에 대해서는 1~9의 숫자로 순회
+    // 백을 하는 과정은 해당 dot의 값을 0으로 만든 뒤, dot index--로 백을 하면 될 듯, 그 이전 dot의 값++한 뒤 다시 탐색
+    // 1~9까지 해봤는데 안된다?
+    int dotIndex = 0;
+    int i = 1;
+    while(dotIndex < zeroDots.size()) {
+        for(; i<=9; i++) {
+            if( isAble(i, Board, zeroDots[dotIndex].first, zeroDots[dotIndex].second) ) {
+                Board[zeroDots[dotIndex].first][zeroDots[dotIndex].second] = i;
+                //cout << dotIndex << "th dot:" << endl;
+                i=0;
+                dotIndex++;
+                if(dotIndex==zeroDots.size()) break;
+                // for (int i = 0; i < 9; i++)
+                // {
+                //     for (int j = 0; j < 9; j++)
+                //     {
+                //         if(zeroDots[dotIndex].first == i && j  == zeroDots[dotIndex].second) {
+                //             cout << "    " << Board[i][j] << "    ";
+                //         }
+                //         else cout << Board[i][j] << " ";
+                //     }
+                //     cout << endl;
+                // }
+                
+                
+            }
+        }
+        if(dotIndex==zeroDots.size()) break; // 인덱싱 문제였네 씨팔
+        if(i>9) {
+            Board[zeroDots[dotIndex].first][zeroDots[dotIndex].second] = 0;
+            dotIndex--;
+            i = Board[zeroDots[dotIndex].first][zeroDots[dotIndex].second] + 1;
+        }
     }
 }
 
+
+
 int main(void)
 {
-    ios::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
-    int N,M;
-    cin >> N >> M;
-    vector<int> List;
-    for(int i = 1; i<=N; i++)
-    NandM(List, N, M, i);
+    int N;
+    int tmp;
+    //cin >> N;
+    N=9;
+    int **Board;
+    vector<pair<int,int>> zeroDots;
+    Board = new int*[N];
+    for(int j = 0; j < N; j++) {
+        Board[j] = new int[N];
+    }
+    for(int i = 0; i < N; i++) {
+        for(int j = 0; j < N; j++) {
+            cin >> tmp;
+            if(tmp == 0) {
+                zeroDots.push_back(make_pair(i,j));
+            }
+            Board[i][j] = tmp;
+        }
+    }
+    // for(int i = 0; i < zeroDots.size(); i++) {
+    //     cout << zeroDots[i].first << " " << zeroDots[i].second << endl;
+    // }
+    sudoku(Board, zeroDots);
+
+    for(int i = 0; i < N; i++) {
+        for(int j = 0; j < N; j++) {
+            cout << Board[i][j] << " ";
+        }
+        cout << endl;
+    }
+
 }
