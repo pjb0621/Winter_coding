@@ -40,9 +40,11 @@
 
 #### 안재우
 [![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=kotlincpp)](https://solved.ac/kotlincpp)
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=kotlincpp)](https://solved.ac/kotlincpp)   
 
-
+### 김창아   
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=changakim)](https://solved.ac/changakim)     
 
 
 ## 자문위원   
