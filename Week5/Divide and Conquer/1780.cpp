@@ -32,8 +32,8 @@ void cut(int paper[][2187], int N){
             if(paper[i][j]!=first) flag=1;
         }
     }
-    if(flag=0) count[first+1]++;
-    else{
+    if(flag==0) count[first+1]++;
+    else if(flag==1){
         int newarr[N/3][2187];
         for(int i=0;i<N/3;i++){
             for(int j=0;j<N/3;j++){
