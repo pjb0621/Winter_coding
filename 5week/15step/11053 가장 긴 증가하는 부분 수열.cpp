@@ -1,4 +1,4 @@
-/* https://www.acmicpc.net/problem/9461
+/* https://www.acmicpc.net/problem/11053
 
 수열 A가 주어졌을 때, 가장 긴 증가하는 부분 수열을 구하는 프로그램을 작성하시오.
 예를 들어, 수열 A = {10, 20, 10, 30, 20, 50} 인 경우에 가장 긴 증가하는 부분 수열은 A = {10, 20, 30, 50} 이고, 길이는 4이다.
@@ -53,28 +53,21 @@ int main(void)
         dp[i][0] = make_pair(1,nums[i]);
         for (j = i - 1; j >= 1; j--)
         {
-            // 현재 수열 길이랑, j의 위치를 ㅣㅂ교하면 break조건 검토 가능
+            // 현재 수열 길이랑, j의 위치를 ㅣㅂ교하면 break조건,continue조건 검토 가능
             if(j+1 <= dp[i][0].first) break;
             // j의 위치 = dp[j]에서 나올 수 있는 길이 값의 상한선
-            // 
+            //if( dp[j][0].first + 1 <= dp[i][0].first && dp[j][1].first + 1 <= dp[i][0].first) continue;
+            // j번째에서 최적해가 갱신되지 않는다면 패쓰 => 두 차례에 걸쳐서 갱신하는 방식으로 가는게 더 깔끔할 듯.
             right0 = dp[j][0].second;
             right1 = dp[j][1].second; //바로 이전의 두 최적해에서 가장 오른쪽 값을 가져옴.
-            if (nums[i] > right0 && nums[i] > right1)
-            { //두 경우에 대해 모두 오름차순 조건 만족 시,
-                if (dp[j][0].first == dp[j][1].first)
-                {
-                    dp[i][0] = (dp[j][0].second < dp[j][1].second) ? dp[j][0] : dp[j][1];
-                    // 수열 길이가 같다면, 가장 오른쪽 값이 작은 놈이 더 유리함
-                }
-                else
-                {
-                    dp[i][0] = (dp[j][0].first > dp[j][1].first) ? dp[j][0] : dp[j][1];
-                    // 길이가 같지 않으면 수열 길이로 판단
-                }
-                dp[i][0].first++;
-                dp[i][1].second = nums[i];
+            if(nums[i] > right0 && dp[j][0].first+1 > dp[i][0].first ) { //오름차순 만족 & 길이 갱신조건 만족
+                dp[i][0].first = dp[j][0].first+1;
+            }
+            if(nums[i] > right1 && dp[j][1].first+1 > dp[i][0].first ) { //오름차순 만족 & 길이 갱신조건 만족
+                dp[i][0].first = dp[j][1].first+1;
             }
         }
+        //cout << dp[i][0].first <<" "<< dp[i][0].second << " " << dp[i][1].first << " "<< dp[i][1].second<<endl;
     }
     cout << max(dp[N][0].first, dp[N][1].first);
     

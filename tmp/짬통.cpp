@@ -29,19 +29,7 @@ int binary_search_index(vector<int> &a, int left, int right, int target)
 
 int main(void)
 {
-    queue<pair<int, int>> nums; // value, 원래순서
-    vector<int> values;
-    int T, N, M, i, j, tmp;
-    cin >> N >> M;
-    int count = 0;
-    for (int j = 0; j < N; j++)
-    {
-        cin >> tmp;
-        values.push_back(tmp);
-        nums.push(make_pair(tmp, j));
-    }
-    cout << nums.front().first;
-    nums.push(nums.front());
-    nums.pop();
-    cout << nums.front().first;
+    int a = -3;
+    int b = 2;
+    cout << a/b;
 }

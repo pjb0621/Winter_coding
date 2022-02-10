@@ -36,6 +36,8 @@ void sudoku(int **Board, vector<pair<int,int>> zeroDots) {
     // 각 pair에 대해서 순회, 그리고 pair에 대해서는 1~9의 숫자로 순회
     // 백을 하는 과정은 해당 dot의 값을 0으로 만든 뒤, dot index--로 백을 하면 될 듯, 그 이전 dot의 값++한 뒤 다시 탐색
     // 1~9까지 해봤는데 안된다?
+    // 한 칸이 빈걸 먼저 체크하면 성능을 개선할 수 있겠다.
+
     int dotIndex = 0;
     int i = 1;
     while(dotIndex < zeroDots.size()) {
