@@ -19,9 +19,7 @@ int fac(int n) {
     if(n == 0) return 1;
     else return n*fac(n-1);
 }
-int nCr(int n1Cr1, int n1Cr) {
-    return n1Cr1 + n1Cr;
-}
+
 
 int main(void){
     int N,K;

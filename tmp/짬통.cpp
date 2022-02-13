@@ -3,7 +3,7 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
-
+#include <map>
 using namespace std;
 
 int binary_search_index(vector<int> &a, int left, int right, int target)
@@ -29,7 +29,6 @@ int binary_search_index(vector<int> &a, int left, int right, int target)
 
 int main(void)
 {
-    int a = -3;
-    int b = 2;
-    cout << a/b;
+    map<int, int> a;
+    cout << a[1];
 }
