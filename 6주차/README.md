@@ -15,7 +15,7 @@
 
 ## 동적 계획법       
 필수   
-1669 제곱수의 합: https://www.acmicpc.net/problem/1669     
+1699 제곱수의 합: https://www.acmicpc.net/problem/1699     
 11726 2XN 타일링 : https://www.acmicpc.net/problem/11726    
 11727 2XN 타일링 2 : https://www.acmicpc.net/problem/11727    
 12865 평범한 배낭 :  https://www.acmicpc.net/problem/12865   
