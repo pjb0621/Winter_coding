@@ -32,7 +32,7 @@
 필수   
 1780 종이의 개수 : https://www.acmicpc.net/problem/1780   
 11728 배열 합치기 : https://www.acmicpc.net/problem/11728       
-2447 별 찍기 10 : https://www.acmicpc.net/problem/2447    
+1992 쿼드트리 : https://www.acmicpc.net/problem/1992       
    
 
 
