@@ -43,7 +43,6 @@ int main(void)
     }
     cin >> M;
     list<char>::iterator cursor = output.end();
-    list<char>::iterator tmpCursor;
     for(int i = 0; i<M;i++) {
         cin>>order;
         switch (order)
@@ -58,10 +57,8 @@ int main(void)
             break;
         case 'B': // 왼쪽 한 칸 삭제
             if(cursor == output.begin()) break;
-            tmpCursor = cursor;
-            cursor--;
-            output.erase(cursor);
-            cursor = tmpCursor;
+            output.erase(--cursor);
+            cursor++;
             break;
         case 'P': // 왼쪽에 하나 추가
             cin>>alpha;
@@ -71,10 +68,7 @@ int main(void)
             break;
         }
     }
-    //cout <<"dd ";
     for(list<char>::iterator i = output.begin(); i!=output.end();i++) {
         cout<<*i;
     }
 }   
-
-

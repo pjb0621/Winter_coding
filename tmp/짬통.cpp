@@ -27,8 +27,9 @@ int binary_search_index(vector<int> &a, int left, int right, int target)
     }
 }
 
+
+
 int main(void)
 {
-    map<int, int> a;
-    cout << a[1];
+    cout<< stoi("0001");
 }
