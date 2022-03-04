@@ -46,6 +46,10 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=changakim)](https://solved.ac/changakim)     
 
+#### 전민서     
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=minseo4565)](https://solved.ac/minseo4565)   
+
 
 ## 자문위원   
 #### 고계훈   
