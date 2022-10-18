@@ -13,30 +13,62 @@
 */
 
 #include <iostream>
-#include <vector>
+
 using namespace std;
 
 
 int main(){
-    int arr[100000000];
-    int n,tmp;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int count[10001];
+    int n, least, index;
     cin >> n;
-    for(int i = 0 ; i < n ; i++){
-        cin >> arr[i];
+    
+    for(int i = 0; i < 10001; i++){
+        count[i] = 0;
     }
 
-    for(int i = n-1 ; i > 0 ;i--){
-        for(int j = 0; j < i ; j++){
-            if(arr[j] > arr[j+1]){
-                tmp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = tmp;
+    for(int i = 0; i < n; i++){
+        // 입력되는 수가 1~10000인지 체크하고,
+        // 그에 맞춰 인덱스에서 값을 증가시킴.
+        cin >> index;
+        count[index]++;
+    }
+
+    for(int i = 1; i < 10001; i++){
+        int iter = count[i];
+        if(iter != 0){
+            for(int j = 0; j<iter; j++){
+                cout << i << '\n';
             }
         }
     }
 
-    for(int i = 0; i < n; i++){
-        cout << arr[i] << endl;
-    }
-
 }
+
+
+    /**
+    // 선택정렬
+    // 1. 인덱스 0 부터 n-1 까지 반복하자.
+    for(int i = 0; i < n-1; i++){
+
+        // 초기 최솟값은 첫번째 인덱스
+        least = i;
+
+        // 2. i번째 인덱스(출발점) 부터 마지막 인덱스까지 최솟값을 찾는다
+        // i+1번째부터 시작해서 최솟값과 비교함
+        for(int j = i+1; j < n; j++){
+            if(arr[j] < arr[least]) least = j;
+        }
+
+        // 3. 최솟값이 바뀌면 swap
+        if(least != i){
+            tmp = arr[i];
+            arr[i] = arr[least];
+            arr[least] = tmp;
+        }
+
+    }
+    */
