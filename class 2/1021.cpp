@@ -41,9 +41,11 @@ class Queue{
 public:
     int size;
     ListNode<T> *head, *tail;
+    
+
 
     // 생성자
-    Queue<T>() : size(0), head(nullptr), tail(nullptr){}
+    Queue<T>(): size(0), head(nullptr), tail(nullptr){}
 
     // 소멸자
     ~Queue<T>(){
@@ -110,17 +112,17 @@ public:
     void move_left(){
         // front에 있는걸 tail로
         // front->next가 head로 간다.
-        ListNode<T> *temp = head;
-        tail -> next = head;
-        head = head->next;
+        ListNode<T> *temp;
+        for(int i = 0; i < size-1; i++) temp = temp->next;
+        head = tail;
+        tail = temp;
     }
 
     void move_right(){
-        
-        ListNode<T> *dest;
-        for(int i = 0; i < size-1; i++) dest = dest->next;
-        head = tail;
-        tail = dest;
+        tail -> next = new ListNode<T> (head->value, nullptr);
+        ListNode<T> *temp = head -> next;
+        delete head;
+        head = temp;
     }
 
     void print(){
@@ -143,6 +145,7 @@ int main(){
     for(int i = 1; i <= N; i++){
         Q.push(i);
     }
+    Q.tail->next = Q.head;
 
     int num[M];
     for(int i = 0 ; i < M ; i++){
