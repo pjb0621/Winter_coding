@@ -65,7 +65,7 @@ public:
         if (k<0 || k > size) throw InvalidIndexException();
 
         if(k == 0){
-            head = new ListNode<T>(value,head);
+            head = new ListNode<T>(value,head); //head를 next로 둔다.
         }
         else{
             ListNode<T> *dest = head; //listNode 타입의 포인터를 만들어서, head 가리키게 함. 
@@ -95,10 +95,10 @@ public:
                 ListNode<T> *dest = head; *temp;
                 for(int i = 0; i <k-1; i++) dest = dest->next; // k-1번째 노드까지 옴
                 // k번재 노드를 삭제하면 k-1번쨰 노드의 다음이 k번째 노드의 다음임
-                temp = dest -> next -> next;
-                delete dest->next;
-                dest->next = temp;
-            
+                temp = dest -> next -> next; // k+1번재를 temp로 저장
+                delete dest->next; // k번째 삭제
+                dest->next = temp;  // k-1 과 k+1 연결
+             
             }
             size--;
         }
@@ -108,5 +108,25 @@ public:
         }
     }
 
+    int search(T value){ // 값을 찾아 첫번째 인덱스 리턴, 없으면 -1 리턴
+        ListNode<T> *temp = head;
+        for(int i=0; i<size; i++){
+            if(temp -> value == value) return i;
+            temp = temp->next;
+        }
+        return -1; // 못찾음
+    }
+};
 
+template<typename T>
+ostream& operator <<(ostream &out, const LinkedList<T> &LL){ // 원소들을 한 줄에 차례대로 출력
+    ListNode<T> *temp = LL.head;
+    out << '[';
+    for(int i = 0; i<LL.size; i++){
+        out << temp->value;
+        temp = temp->next;
+        if(i < LL.size-1) out << ",";
+    }
+    out << ']';
+    return out;
 }
