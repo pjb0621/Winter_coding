@@ -89,23 +89,23 @@ int ownsStockAt();
 // [GIVEN FUNCTIONS] - These functions are predefined
 // If these do not work properly, you have to adjust your implementation.
 void printRanking(){
-int currRank = 1;
-int currScore = getAssets(participants[0]);
+    int currRank = 1;
+    int currScore = getAssets(participants[0]);
 
-for(int i = 1; i <= NUM_PEOPLE; i++){
-if(currScore != getAssets(participants[i-1])){
-currRank = i;
-currScore = getAssets(participants[i-1]);
-}
+    for(int i = 1; i <= NUM_PEOPLE; i++){
+        if(currScore != getAssets(participants[i-1])){
+          currRank = i;
+          currScore = getAssets(participants[i-1]);
+    }
 
-printf("%2d.\tParticipant %d\t%4d\t%4d\n", currRank, participants[i-1][ID], participants[i-1][BUDGET], currScore);
+    printf("%2d.\tParticipant %d\t%4d\t%4d\n", currRank, participants[i-1][ID], participants[i-1][BUDGET], currScore);
 
-}
+    }
 }
 
 void printStockValues(){
-for(int i = 0; i < TOTAL_STOCKS; i++)
-printf("Stock #%2d\t%3d\n", i, stocks[i]);
+    for(int i = 0; i < TOTAL_STOCKS; i++)
+        printf("Stock #%2d\t%3d\n", i, stocks[i]);
 }
 
 // [MANDATORY FUNCTIONS] - You need to implement these
@@ -116,19 +116,19 @@ void init(int seed){
 
 int buyStock(int id, int stockId, int amount){
 
-printf("Participant %d is trying to buy %d unit(s) of stock #%d\n", id, amount, stockId);
+    printf("Participant %d is trying to buy %d unit(s) of stock #%d\n", id, amount, stockId);
 
 }
 
 int sellStock(int id, int stockId, int amount){
 
-printf("Participant %d is trying to sell %d unit(s) of stock #%d\n", id, amount, stockId);
+    printf("Participant %d is trying to sell %d unit(s) of stock #%d\n", id, amount, stockId);
 
 }
 
 int changeStockValue(int stockId, int amount){
 
-printf("Stock #%d's value is %s by %d\n", stockId, (amount < 0)?"decreased":"increased", abs(amount));
+    printf("Stock #%d's value is %s by %d\n", stockId, (amount < 0)?"decreased":"increased", abs(amount));
 
 }
 
@@ -164,84 +164,84 @@ int ownsStockAt(){}
 
 int main(){
 
-int seed;
+    int seed;
 
-scanf("%d", &seed);
-getchar(); //Using getchar() here to consume the leftover newline character from scanf
+    scanf("%d", &seed);
+    getchar(); //Using getchar() here to consume the leftover newline character from scanf
 
-init(seed);
-
-
-char input[MAX_INPUT]; //place to store the input string
-char *arg[5]; //array to store single arguments
-int running = 1; //flag to determine whether to end the program or not
-int argNum; //number of arguments passed in the input string
-int ret; //variable to save function return values
-
-//Entering user input loop. What might be the benefit of using a do...while-loop?
-do{
-
-fgets(input, MAX_INPUT-1, stdin); // reading MAX_INPUT-1 number of characters from stdin
-// to leave space for the null character!
-
-char input[MAX_INPUT]; //place to store the input string
-char *arg[5]; //array to store single arguments
-int running = 1; //flag to determine whether to end the program or not
-int argNum; //number of arguments passed in the input string
-int ret; //variable to save function return values
-
-//Entering user input loop. What might be the benefit of using a do...while-loop?
-do{
-
-fgets(input, MAX_INPUT-1, stdin); // reading MAX_INPUT-1 number of characters from stdin
-// to leave space for the null character!
-day_eonnnn님의 프로필 사진
-
-// strtok() is a little difficult. This part simply reads the string input and cuts
-// it into the individual arguments, which are stored in the arg array
-// If you are curious about strtok(), check this link: https://man7.org/linux/man-pages/man3/strtok.3.html
-arg[0] = strtok(input, " ");
-for(argNum = 1; argNum < 5; argNum++)
-if(!(arg[argNum] = strtok(NULL, " "))) break;
-
-//switching based on the first letter of the first argument string
-switch(arg[0][0]){
-
-case 'q':
-running = 0; break;
-
-case 'p':
-printf("\n");
-printStockValues();
-printf("\n");
-printRanking();
-break;
-
-case 's':
-if(argNum < 4) { printf("Not enough arguments for this command!\n"); break;}
-//[IMPORTANT] Decide sellStock()'s return value based on the below if statement and the error message
-ret = sellStock(atoi(arg[1]), atoi(arg[2]), atoi(arg[3]));
-if(!ret)
-printf("[ERROR] The seller does not own enough stocks!\n");
-else if(ret < 0)
-printf("[ERROR] The seller does not own this stock!\n");
-break;
-
-case 'v':
-if(argNum < 3) { printf("Not enough arguments for this command!\n"); break;}
-//[IMPORTANT] Decide changeStockValue()'s return value based on the below if statement and the error message
-if(!changeStockValue(atoi(arg[1]), atoi(arg[2])))
-printf("[ERROR] Stock values cannot fall to 0!\n");
-break;
-
-default:
-printf("Invalid Command\n"); //Ignore invalid commands
-};
-}while(running);
+    init(seed);
 
 
+    char input[MAX_INPUT]; //place to store the input string
+    char *arg[5]; //array to store single arguments
+    int running = 1; //flag to determine whether to end the program or not
+    int argNum; //number of arguments passed in the input string
+    int ret; //variable to save function return values
 
-printf("Final Ranking:\n");
-printRanking();
+    //Entering user input loop. What might be the benefit of using a do...while-loop?
+    do{
+
+        fgets(input, MAX_INPUT-1, stdin); // reading MAX_INPUT-1 number of characters from stdin
+        // to leave space for the null character!
+
+        char input[MAX_INPUT]; //place to store the input string
+        char *arg[5]; //array to store single arguments
+        int running = 1; //flag to determine whether to end the program or not
+        int argNum; //number of arguments passed in the input string
+        int ret; //variable to save function return values
+
+        //Entering user input loop. What might be the benefit of using a do...while-loop?
+        do{
+
+            fgets(input, MAX_INPUT-1, stdin); // reading MAX_INPUT-1 number of characters from stdin
+            // to leave space for the null character!
+            // strtok() is a little difficult. This part simply reads the string input and cuts
+            // it into the individual arguments, which are stored in the arg array
+            // If you are curious about strtok(), check this link: https://man7.org/linux/man-pages/man3/strtok.3.html
+            arg[0] = strtok(input, " ");
+            for(argNum = 1; argNum < 5; argNum++)
+                if(!(arg[argNum] = strtok(NULL, " "))) break;
+
+            //switching based on the first letter of the first argument string
+            switch(arg[0][0]){
+
+                case 'q':
+                running = 0; break;
+
+                case 'p':
+                printf("\n");
+                printStockValues();
+                printf("\n");
+                printRanking();
+                break;
+
+                case 's':
+                if(argNum < 4) { 
+                    printf("Not enough arguments for this command!\n"); break;}
+                    //[IMPORTANT] Decide sellStock()'s return value based on the below if statement and the error message
+                    ret = sellStock(atoi(arg[1]), atoi(arg[2]), atoi(arg[3]));
+                if(!ret)
+                    printf("[ERROR] The seller does not own enough stocks!\n");
+                else if(ret < 0)
+                    printf("[ERROR] The seller does not own this stock!\n");
+                    break;
+
+                case 'v':
+                    if(argNum < 3) { printf("Not enough arguments for this command!\n"); break;}
+                    //[IMPORTANT] Decide changeStockValue()'s return value based on the below if statement and the error message
+                    if(!changeStockValue(atoi(arg[1]), atoi(arg[2])))
+                    printf("[ERROR] Stock values cannot fall to 0!\n");
+                    break;
+
+                default:
+                printf("Invalid Command\n"); //Ignore invalid commands
+                };
+        }while(running);
+
+
+
+    printf("Final Ranking:\n");
+    printRanking();
+    }
 }
 
