@@ -82,14 +82,28 @@ void push_back(deque *d, int data){
 }
 
 int pop_front(deque *d){
-
-    if(is_empty(d) == 1) // 덱이 비어있으면 
+   
+    if(d->size == 0){ // 덱이 비어있으면 
         return -1;
-    
+    }
+
     struct Node* temp = d->front;
     int data = temp->data;
-    d->front = d->front->next;
-    d->front->prev= NULL;
+
+    /* 개수가 1개인 경우 */
+    if(d->size == 1)
+    {    
+        d->front = NULL;
+        d->rear = NULL;
+        d->size--;
+        return data;
+    }
+    else
+    {
+        d->front = temp -> next;
+        d->front-> prev = NULL;
+    }
+    
     temp -> next = NULL;
     free(temp);
     d->size--;
@@ -97,14 +111,23 @@ int pop_front(deque *d){
 }
 
 int pop_back(deque *d){
-
-    if(is_empty(d) == 1) return -1;
+    
+    if(d->size == 0) return -1;
 
     struct Node *temp = d->rear;
     int data = temp -> data;
-    d-> rear = temp-> prev;
-    d->rear -> next = NULL;
+    
+    if(d->size == 1){
+        d->front = NULL;
+        d->rear = NULL;
+        d->size--;
+        return data;
+    }
+    else{
+        d->rear = temp -> prev;
+        d->rear->next = NULL;
 
+    }
     temp->prev =NULL;
     free(temp);
     d->size--;
@@ -139,6 +162,10 @@ int main(){
         }
         else if(strcmp(order[i], "push_back")==0){
             push_back(&d,num[k++]);
+        }
+        else if(strcmp(order[i],"front") == 0){
+            tmp = front(&d);
+            printf("%d\n", tmp);
         }
         else if(strcmp(order[i], "back") == 0){
             tmp = back(&d);
