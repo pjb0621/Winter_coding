@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstring>
 using namespace std;
 
 int main(){
@@ -17,23 +16,29 @@ int main(){
         str.push_back(tmp);
     }
 
+    // for(int i = 0 ; i < T; i++) cout << str[i] << endl;
+
+    
+
     for(int i = 0; i < T; i++){
 
-      // cout << str[i] << endl;
-       // cout << str[i].size() << endl;
+        //cout << "START" << endl;
+        //cout << str[i] << endl;
+        
+        // cout << str[i].size() << endl;
 
         if(str[i].size() % 2 == 1){
             cout << "NO" << endl;
-            break;
+            continue;
         }
 
         
         for(int j = 0; j < str[i].size(); j++){
-            if(strcmp(str[i].at(j),")") == 0) cnt--;
+           // cout << str[i].at(j) << "";
+            if(str[i].at(j) == ')') cnt--;
             else cnt++;
 
             if(cnt < 0){
-                cout << "NO" << endl;
                 break;
             }
         }
@@ -41,9 +46,10 @@ int main(){
        
         
         if(cnt == 0) cout << "YES" << endl;
-        
+        else cout << "NO" << endl;
         cnt = 0; // 사이클마다 초기화
 
+        //cout << " ----------- " << endl;
     }
 
 }
