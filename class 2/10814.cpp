@@ -3,9 +3,9 @@
 #include <string>
 using namespace std;
 
-pair<int, string> sorted[100000];
+pair<pair<int,int>, string> sorted[100000];
 
-int merge(pair<int, string> list[], int left, int mid, int right){
+void merge(pair<pair<int,int>, string> list[], int left, int mid, int right){
     int i, j, k;
     i = left; j = mid+1; k = left;
     pair <int, string> temp[100000]; // 결과를 담아둘 임시 배열
@@ -13,11 +13,17 @@ int merge(pair<int, string> list[], int left, int mid, int right){
     // 분할된 임시 배열들을 합병
     while(i <= mid && j <= right){
 
-        if(list[i].first < list[j].first){ // 왼쪽 배열의 원소를 집어 넣음
+        if((list[i].first).first < (list[j].first).first){ // 왼쪽 배열의 원소를 집어 넣음
             temp[k++] = list[i++];
         }
-        else if(list[i].first >= list[j].first){ // 오른쪽 배열의 원소를 집어 넣음
+        else if((list[i].first).first > (list[j].first).first){ // 오른쪽 배열의 원소를 집어 넣음
             temp[k++] = list[j++];
+        }
+        else{ // 나이가 같은 경우
+            if((list[i].first).second < (list[j].first).second){
+                temp[k++] = list[i++];
+            }
+            else temp[k++] = list[j++];
         }
     }
 
@@ -36,7 +42,7 @@ int merge(pair<int, string> list[], int left, int mid, int right){
 
 }
 
-void mergeSort(pair<int, string> list[], int left, int right){
+void mergeSort(pair<pair<int,int>, string> list[], int left, int right){
     if(left != right){ // 배열의 크기가 1이 아니면 계속 분할함.
         int mid = (left + right)/2;
         mergeSort(list, left, mid);
@@ -50,6 +56,19 @@ void mergeSort(pair<int, string> list[], int left, int right){
 int main(){
     int T;
     cin >> T;
+    for(int i = 0 ; i < T; i++){
+        int a;
+        string b;
+        cin >> a >> b;
+        pair <int, int> first (a, i);
+        pair<pair<int,int>, string> temp (first,b);
+        sorted[i] = temp;
+    }
+    
+    mergeSort(sorted, 0, T-1);
 
+    for(int i = 0; i < T; i++){
+        cout << sorted[i].first.first << " " << sorted[i].second << '\n';
+    }
 
 }
