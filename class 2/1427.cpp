@@ -10,16 +10,18 @@
 using namespace std;
 
 int main(){
-    string strArray;
-    int arr[1000000000];
 
-    cin >> strArray;
+    int num;
+    cin >> num;
 
+    int arr[100];
     int N = 0;
-    for(int i = 0; strArray[i]!='\0'; i++){
-        arr[i] = strArray[i];
-        N++;
+    // 각 자릿수 배열에 넣기
+    while(num != 0){
+        arr[N++] = num % 10;
+        num /= 10;
     }
+
 
     // 선택정렬
     int max = -1, max_idx;
