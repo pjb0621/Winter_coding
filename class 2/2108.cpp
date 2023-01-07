@@ -60,8 +60,26 @@ int main(){
     for(int i = 0; i< n; i++){
         sum += arr[i];
     }
-    if(sum < 0) average = floor(abs(sum/n)) *(-1);
-    else average = round(sum/n);
+
+    /*
+    실수 타입 캐스팅이 중요한 문제,
+    sum과 n이 모두 정수형이므로 5/3하면 소수점이 버려진다. 
+    그래서 계산결과가 그냥 1.0000 으로 저장되므로
+    sum, n중에 하나를 flaot으로 캐스팅하고 계산을 진행해야한다.
+
+    자료형의 연산은 정말 정말 오차에 있어서 중요한 부분이므로 꼭! 숙지하자.
+    */
+    if(sum <= 0){
+        float value = (float) sum/n;
+        value -= 0.5;
+        average = (int)value;
+    }
+    else{
+        float value= (float)sum/n;
+        value += 0.5;
+        average = (int)value;
+
+    }
 
     // 중앙값
     median = arr[n/2];
@@ -89,6 +107,7 @@ int main(){
     mod_num -= 4000;
 
     range = arr[n-1] - arr[0];
+
 
     cout << average << endl;
     cout << median << endl;
