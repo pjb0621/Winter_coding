@@ -43,7 +43,7 @@ int back(Queue *q){
     return q->rear->data;
 }
 
-void push(Que   ue *q, int data){
+void push(Queue *q, int data){
     
     // 새로운 노드를 먼저 생성함.
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -62,7 +62,7 @@ void push(Que   ue *q, int data){
 
 int pop(Queue *q){
 
-    if(is_em    pty(q) == 1) return -1;
+    if(is_empty(q) == 1) return -1;
 
     struct Node *temp = q->front;
     int data = temp->data;
@@ -77,7 +77,7 @@ int main(){
     int SIZE;
     scanf("%d", &SIZE);
 
-    char order[10000][12];
+    char order[2000000][14];
     int num[SIZE];
     int k = 0;
     for(int i = 0; i < SIZE; i++){
